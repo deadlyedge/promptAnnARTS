@@ -23,7 +23,7 @@ const AnnaContext = createContext<{
 // const AnnaDispatchContext = createContext<IAction>({ dispatch: () => null })
 
 export function AnnaProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(annaReducer, [], initAnna)
+  const [state, dispatch] = useReducer(annaReducer, {}, initAnna)
 
   return (
     <AnnaContext.Provider value={{ state, dispatch }}>
