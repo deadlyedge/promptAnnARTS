@@ -20,8 +20,6 @@ const AnnaContext = createContext<{
   dispatch: Dispatch<IAction>
 }>({ state: initAnna(), dispatch: () => null })
 
-// const AnnaDispatchContext = createContext<IAction>({ dispatch: () => null })
-
 export function AnnaProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(annaReducer, {}, initAnna)
 
@@ -36,19 +34,10 @@ export function useAnnaState() {
   return useContext(AnnaContext)
 }
 
-// export function useAnnaDispatch() {
-//   return useContext(AnnaDispatchContext)
-// }
-
 function annaReducer(state: IState, action: IAction): IState {
   const { type, payload } = action
 
   switch (type) {
-    // case ACTION_TYPE.INIT_CARD:
-    //   return {
-    //     ...state,
-    //     cardList: []
-    //   }
     case ACTION_TYPE.ADD_CARD:
       return {
         ...state,

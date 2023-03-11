@@ -1,16 +1,24 @@
-import { FC, ReactElement, useCallback } from "react"
-import { TCard } from "../types"
+import { useCallback } from "react"
+import { ACTION_TYPE, TCard } from "../types"
+import { useAnnaState } from "../utils/annaContext"
 
 interface ICardItem {
   card: TCard
-  removeCard: (id: string) => void
-  refreshEditor: () => void
 }
 
-const CardHeader: FC<ICardItem> = ({ card, removeCard, refreshEditor }): ReactElement => {
+const CardHeader = ({ card }: ICardItem) => {
+
+  const {dispatch} = useAnnaState()
+  
   const handleRemove = useCallback((id: string) => {
-    removeCard(id)
-    refreshEditor()
+    dispatch({
+      type: ACTION_TYPE.REMOVE_CARD,
+      payload: id,
+    })
+    dispatch({
+      type: ACTION_TYPE.REFRESH_EDITOR,
+      payload: null,
+    })
   }, [])
 
   return (

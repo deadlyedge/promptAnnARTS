@@ -1,15 +1,22 @@
-import { FC, ReactElement, useCallback } from "react"
+import { useCallback } from "react"
 import { FileDrop } from "react-file-drop"
 import exifr from "exifr"
-import { TCard, TPrompt } from "../types"
+import { ACTION_TYPE, TCard, TPrompt } from "../types"
 import { v4 as uuid } from "uuid"
 import { formatBytes } from "../utils"
+import { useAnnaState } from "../utils/annaContext"
 
-interface IAddCard {
-  addNewCard: (card: TCard) => void
-}
+const CardAdd = () => {
+  
+  const {dispatch} = useAnnaState()
 
-const CardAdd: FC<IAddCard> = ({ addNewCard }): ReactElement => {
+  const addNewCard = useCallback((card: TCard) => {
+    dispatch({
+      type: ACTION_TYPE.ADD_CARD,
+      payload: card,
+    })
+  }, [])
+
   const handlePrompts = useCallback((prompts: string): TPrompt[] => {
     let result = prompts
       .replace(/,(?=((?!\().)*?\))/g, "xx.xx") // 匹配括号中的逗号 with a cute pattern

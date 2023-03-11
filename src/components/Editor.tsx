@@ -1,10 +1,10 @@
-import { FC, ReactElement } from "react"
 import { TEditor } from "../types"
+import { useAnnaState } from "../utils/annaContext"
 
-interface IContents {
-  contents: TEditor
-}
-const Editor: FC<IContents> = ({ contents }): ReactElement => {
+const Editor = () => {
+
+  const {state} = useAnnaState()
+
   const contentsReformed = (input: TEditor) => {
     return input.prompts || input.negatives
       ? `Prompts:\n${input.prompts}\n\nNegatives:\n${input.negatives}`
@@ -18,8 +18,9 @@ const Editor: FC<IContents> = ({ contents }): ReactElement => {
         name='editor'
         id='editor'
         placeholder='your prompts here'
-        value={contentsReformed(contents)}
+        value={contentsReformed(state.editor)}
         rows={10}
+        readOnly
       />
     </div>
   )
