@@ -7,8 +7,7 @@ import { formatBytes } from "../utils"
 import { useAnnaState } from "../utils/annaContext"
 
 const CardAdd = () => {
-  
-  const {dispatch} = useAnnaState()
+  const { dispatch } = useAnnaState()
 
   const addNewCard = useCallback((card: TCard) => {
     dispatch({
@@ -49,18 +48,20 @@ const CardAdd = () => {
         let generator_reference = "Steps:" + splited[1]
         let [prompts, negatives] = splited[0].split("Negative prompt:")
 
-        addNewCard({
-          id: uuid(),
-          image: image,
-          imageInfo: {
-            fileName: image.name,
-            fileSize: formatBytes(image.size),
-            lastModifiedTime: new Date(image.lastModified),
-            prompts: handlePrompts(prompts),
-            negatives: handlePrompts(negatives),
-            generator_reference: generator_reference,
-          },
-        })
+        if (prompts) {
+          addNewCard({
+            id: uuid(),
+            image: image,
+            imageInfo: {
+              fileName: image.name,
+              fileSize: formatBytes(image.size),
+              lastModifiedTime: new Date(image.lastModified),
+              prompts: handlePrompts(prompts),
+              negatives: handlePrompts(negatives),
+              generator_reference: generator_reference,
+            },
+          })
+        }
       })
     })
   }
@@ -78,6 +79,7 @@ const CardAdd = () => {
           xmlns='http://www.w3.org/2000/svg'>
           <path d='M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path>
         </svg>
+        <p className="text-center text-xs">if picture don't have <>EXIF</> info, it will not show below</p>
       </FileDrop>
     </div>
   )

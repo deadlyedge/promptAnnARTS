@@ -18,8 +18,8 @@ export type TCard = {
 }
 
 export type TEditor = {
-  prompts: string,
-  negatives: string,
+  prompts: string[],
+  negatives: string[],
   // generator_reference: string,
 }
 

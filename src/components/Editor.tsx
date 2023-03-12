@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { TEditor } from "../types"
 import { maybeSame } from "../utils"
 import { useAnnaState } from "../utils/annaContext"
@@ -8,9 +9,15 @@ const Editor = () => {
   const contentsReformed = (input: TEditor) => {
     maybeSame("worst quality", "wors quality")
     return input.prompts || input.negatives
-      ? `Prompts:\n${input.prompts}\n\nNegatives:\n${input.negatives}`
+      ? `Prompts:\n${input.prompts
+          .join(", ")}\n\nNegatives:\n${input.negatives
+          .join(", ")}`
       : ""
   }
+
+  const fromSelect = contentsReformed(state.editor)
+
+  const [userInput, setUserInput] = useState('')
 
   return (
     <div className='fixed z-50 left-0'>
@@ -19,7 +26,8 @@ const Editor = () => {
         name='editor'
         id='editor'
         placeholder='your prompts here'
-        value={contentsReformed(state.editor)}
+        value={userInput+fromSelect}
+        // onChange={(e) => setUserInput(e.target.value)}
         rows={10}
         readOnly
       />

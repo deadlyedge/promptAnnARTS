@@ -12,7 +12,7 @@ import { ACTION_TYPE, IAction, IState, TCard } from "../types"
 //   cardList: [],
 // }
 function initAnna(): IState {
-  return { editor: { prompts: "", negatives: "" }, cardList: [] }
+  return { editor: { prompts: [], negatives: [] }, cardList: [] }
 }
 
 const AnnaContext = createContext<{
@@ -78,23 +78,33 @@ function annaReducer(state: IState, action: IAction): IState {
       return {
         ...state,
         editor: {
-          prompts: state.cardList
-            .map((card) => card.imageInfo.prompts.filter((tag) => tag.checked))
-            .map((card) =>
-              card
-                .map((tags) => tags.prompt)
-                // .filter((i) => i && i.trim())
-                .join(", ")
+          prompts: Array.from(
+            new Set(
+              state.cardList
+                .map((card) =>
+                  card.imageInfo.prompts.filter((tag) => tag.checked)
+                )
+                .map((card) => card.map((tags) => tags.prompt))
+                .flat()
             )
-            .filter((i) => i && i.trim())
-            .join(", "),
-          negatives: state.cardList
-            .map((card) =>
-              card.imageInfo.negatives.filter((tag) => tag.checked)
+          ),
+          //   .filter((i) => i && i.trim())
+          //   .join(", "),
+          negatives: Array.from(
+            new Set(
+              state.cardList
+                .map((card) =>
+                  card.imageInfo.negatives.filter((tag) => tag.checked)
+                )
+                .map((card) => card.map((tags) => tags.prompt))
+                .flat()
             )
-            .map((card) => card.map((tags) => tags.prompt).join(", "))
-            .filter((i) => i && i.trim())
-            .join(", "),
+          ),
+          // .flat(),
+
+          // .map((card) => card.map((tags) => tags.prompt).join(", "))
+          //   .filter((i) => i && i.trim())
+          //   .join(", "),
         },
       }
     default:

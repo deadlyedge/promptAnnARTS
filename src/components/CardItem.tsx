@@ -13,6 +13,19 @@ const CardItem = ({ card }: { card: TCard }) => {
           <CardBody card={card} zone={zone} key={index} />
         ))}
       </div>
+      <div className="mb-1">
+        <label className='text-gray-400 text-xs ml-1 italic'>
+          click{" "}
+          <kbd className='rounded border border-gray-400 border-b-2 px-0.5'>
+            prompt
+          </kbd>{" "}
+          add to edit zone or{" "}
+          <kbd className='rounded border border-gray-400 border-b-2 px-0.5'>
+            +
+          </kbd>{" "}
+          to reverse selection.
+        </label>
+      </div>
     </div>
   )
 }
