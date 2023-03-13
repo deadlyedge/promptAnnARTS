@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { TEditor } from "../types"
 import { maybeSame } from "../utils"
 import { useAnnaState } from "../utils/annaContext"
@@ -17,8 +16,6 @@ const Editor = () => {
 
   const fromSelect = contentsReformed(state.editor)
 
-  const [userInput, setUserInput] = useState('')
-
   return (
     <div className='fixed z-50 left-0'>
       <textarea
@@ -26,8 +23,7 @@ const Editor = () => {
         name='editor'
         id='editor'
         placeholder='your prompts here'
-        value={userInput+fromSelect}
-        // onChange={(e) => setUserInput(e.target.value)}
+        value={fromSelect}
         rows={10}
         readOnly
       />
