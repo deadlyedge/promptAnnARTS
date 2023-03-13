@@ -7,10 +7,6 @@ import {
 } from "react"
 import { ACTION_TYPE, IAction, IState, TCard } from "../types"
 
-// const initState = {
-//   editor: { prompts: "", negatives: "" },
-//   cardList: [],
-// }
 function initAnna(): IState {
   return { editor: { prompts: [], negatives: [] }, cardList: [] }
 }
@@ -88,8 +84,6 @@ function annaReducer(state: IState, action: IAction): IState {
                 .flat()
             )
           ),
-          //   .filter((i) => i && i.trim())
-          //   .join(", "),
           negatives: Array.from(
             new Set(
               state.cardList
@@ -100,11 +94,6 @@ function annaReducer(state: IState, action: IAction): IState {
                 .flat()
             )
           ),
-          // .flat(),
-
-          // .map((card) => card.map((tags) => tags.prompt).join(", "))
-          //   .filter((i) => i && i.trim())
-          //   .join(", "),
         },
       }
     default:

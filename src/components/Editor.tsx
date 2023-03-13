@@ -1,12 +1,10 @@
 import { TEditor } from "../types"
-import { maybeSame } from "../utils"
 import { useAnnaState } from "../utils/annaContext"
 
 const Editor = () => {
   const { state } = useAnnaState()
 
   const contentsReformed = (input: TEditor) => {
-    maybeSame("worst quality", "wors quality")
     return input.prompts || input.negatives
       ? `Prompts:\n${input.prompts
           .join(", ")}\n\nNegatives:\n${input.negatives
