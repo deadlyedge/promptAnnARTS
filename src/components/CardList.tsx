@@ -8,12 +8,16 @@ const CardList = () => {
   const { state } = useAnnaState()
 
   return (
-    <div className='flex flex-wrap items-start justify-center'>
-      <Editor />
-      <CardAdd />
-      {state.cardList.map((card: TCard) => (
-        <CardItem key={card.id} card={card} />
-      ))}
+    <div>
+      <div className='fixed z-50 left-0 top-0 flex'>
+        <Editor />
+        <CardAdd />
+      </div>
+      <div className='flex flex-wrap items-start mt-40 p-1'>
+        {state.cardList.map((card: TCard) => (
+          <CardItem key={card.id} card={card} />
+        ))}
+      </div>
     </div>
   )
 }

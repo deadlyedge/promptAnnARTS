@@ -67,9 +67,9 @@ const CardAdd = () => {
   }
 
   return (
-    <div className='block w-40 h-80 m-1 ml-72 self-start border-4 border-dashed bg-gray-100 rounded bg-opacity-30 cursor-pointer group hover:bg-opacity-60 hover:z-20 duration-200'>
+    <div className='w-40 h-40 m-1 border-4 border-dashed bg-gray-100 rounded bg-opacity-30 cursor-pointer group hover:bg-opacity-60 hover:z-20 duration-200'>
       <FileDrop
-        className='w-40 h-80 py-28 pr-2'
+        className='w-40 h-40 py-2 pr-2'
         onDrop={(dropedImages, event) => handleDroped(dropedImages!)}>
         <p className='text-center text-lg uppercase'>Drop jpg/png here!</p>
         <svg
