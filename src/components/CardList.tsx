@@ -6,7 +6,7 @@ const CardList = () => {
   const { state } = useAnnaState()
 
   return (
-    <div className='flex flex-wrap items-start mt-40 p-1'>
+    <div className='flex flex-wrap items-start mt-40 pt-2'>
       {state.cardList.map((card: TCard) => (
         <CardItem key={card.id} card={card} />
       ))}
