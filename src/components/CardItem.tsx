@@ -6,7 +6,7 @@ const CardItem = ({ card }: { card: TCard }) => {
   const bodyZones = ["prompts", "negatives"]
 
   return (
-    <div className='bg-cover bg-center w-96 m-1 bg-gray-900 rounded shadow static'>
+    <div className='z-30 bg-cover bg-center w-96 m-1 bg-gray-900 rounded shadow static'>
       <CardHeader card={card} />
       <div className='text-xs relative'>
         {bodyZones.map((zone, index) => (

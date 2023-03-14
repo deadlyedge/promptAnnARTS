@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Whisper&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +9,6 @@ body {
   font-weight: 400;
   height: 100%;
 
-  background-attachment: fixed;
   background: rgb(55, 48, 48);
 
   font-synthesis: none;
@@ -17,4 +16,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.logo{
+  font-family: 'Whisper', cursive;
 }
