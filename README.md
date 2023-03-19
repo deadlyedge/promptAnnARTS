@@ -14,4 +14,4 @@ I'm just work on stable diffution webui for only hours, so I may find something 
 
 it's tiny and may you enjoy it:)
 
-test it at https://zick.me
+it's running at https://promptannarts.zick.me/
