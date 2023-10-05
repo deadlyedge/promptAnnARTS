@@ -23,14 +23,14 @@ const CardHeader = ({ card }: ICardItem) => {
 
   return (
     <div className='rounded-t flex flex-row items-end relative'>
-      <div className='basis-3/4 self-center'>
+      <div className='basis-2/3 self-center'>
         <img
           className='rounded'
           src={URL.createObjectURL(card.image)}
           alt='image'
         />
       </div>
-      <div className='basis-1/4 p-1'>
+      <div className='basis-1/3 p-1'>
         <p className='text-xs text-gray-400 mt-20 mb-1'>
           {card.imageInfo.generator_reference}
         </p>

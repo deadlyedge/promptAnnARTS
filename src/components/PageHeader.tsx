@@ -5,8 +5,8 @@ const PageHeader = () => {
   return (
     <div>
       <div className='fixed left-0 top-0 z-50 flex bg-gray-800 bg-opacity-70'>
-        <Editor />
         <CardAdd />
+        <Editor />
       </div>
       <div>
         <div className='w-52 h-40 right-0 top-0 fixed bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 background-animate bg-opacity-20'></div>
