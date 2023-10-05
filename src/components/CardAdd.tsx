@@ -46,7 +46,7 @@ const CardAdd = () => {
               .replace("UNICODE", "")
               .split("Steps:")
         console.log(splited)
-        let generator_reference = ("Steps:" + splited[1]).split(',')
+        let generator_reference = ("Steps:" + splited[1]).split(",")
         let [prompts, negatives] = splited[0].split("Negative prompt:")
 
         if (prompts) {
@@ -80,7 +80,9 @@ const CardAdd = () => {
           xmlns='http://www.w3.org/2000/svg'>
           <path d='M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'></path>
         </svg>
-        <p className="text-center text-xs">if picture don't have <>EXIF</> info, it will not show below</p>
+        <p className='text-center text-xs'>
+          if picture don't have <>EXIF</> info, it will not show below
+        </p>
       </FileDrop>
     </div>
   )
