@@ -13,7 +13,7 @@ export type TCard = {
     lastModifiedTime: Date,
     prompts: TPrompt[],
     negatives: TPrompt[],
-    generator_reference: string,
+    generator_reference: string[],
   }
 }
 

@@ -45,7 +45,8 @@ const CardAdd = () => {
               .join("")
               .replace("UNICODE", "")
               .split("Steps:")
-        let generator_reference = "Steps:" + splited[1]
+        console.log(splited)
+        let generator_reference = ("Steps:" + splited[1]).split(',')
         let [prompts, negatives] = splited[0].split("Negative prompt:")
 
         if (prompts) {

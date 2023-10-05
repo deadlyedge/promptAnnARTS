@@ -7,9 +7,8 @@ interface ICardItem {
 }
 
 const CardHeader = ({ card }: ICardItem) => {
+  const { dispatch } = useAnnaState()
 
-  const {dispatch} = useAnnaState()
-  
   const handleRemove = useCallback((id: string) => {
     dispatch({
       type: ACTION_TYPE.REMOVE_CARD,
@@ -21,6 +20,20 @@ const CardHeader = ({ card }: ICardItem) => {
     })
   }, [])
 
+  const exp_info = card.imageInfo.generator_reference.map((item, index) => {
+    // console.log(item)
+    let [node_name, ...node_info] = item.split(":")
+    return (
+      <span key={index}>
+        {node_name.trim()}{" "}
+        <span className=' text-orange-300'>
+          <code>{node_info}</code>
+        </span>
+        ,{" "}
+      </span>
+    )
+  })
+
   return (
     <div className='rounded-t flex flex-row items-end relative'>
       <div className='basis-2/3 self-center'>
@@ -31,9 +44,7 @@ const CardHeader = ({ card }: ICardItem) => {
         />
       </div>
       <div className='basis-1/3 p-1'>
-        <p className='text-xs text-gray-400 mt-20 mb-1'>
-          {card.imageInfo.generator_reference}
-        </p>
+        <p className='text-xs text-gray-400 mt-20 mb-1'>{exp_info}</p>
       </div>
       <div className=' absolute right-1 top-2 text-gray-900 mt-10'>
         <p className='text-xs bg-gray-100 bg-opacity-60 rounded-l p-1'>
@@ -44,7 +55,7 @@ const CardHeader = ({ card }: ICardItem) => {
         <button
           type='button'
           className='bg-white bg-opacity-20 text-red-600 border-2 border-red-600 hover:bg-red-500 hover:text-white hover:rotate-90 hover:scale-125 rounded-full p-2 mr-2 duration-500'
-          onClick={()=>handleRemove(card.id)}>
+          onClick={() => handleRemove(card.id)}>
           <svg
             className='w-4 h-4'
             fill='currentColor'
