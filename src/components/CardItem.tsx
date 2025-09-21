@@ -3,7 +3,7 @@ import { CardBody } from "./CardBody"
 import { CardHeader } from "./CardHeader"
 
 export const CardItem = ({ card }: { card: TCard }) => {
-  const bodyZones = ["prompts", "negatives"]
+  const bodyZones: ("prompts" | "negatives")[] = ["prompts", "negatives"]
 
   return (
     <div className='z-30 bg-cover bg-center w-[35rem] m-1 bg-gray-900 rounded shadow static'>
