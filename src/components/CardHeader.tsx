@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useCallback } from "react"
 import { ACTION_TYPE, TCard } from "../types"
 import { useAnnaState } from "../utils/annaContext"
@@ -18,11 +19,11 @@ export const CardHeader = ({ card }: ICardItem) => {
       type: ACTION_TYPE.REFRESH_EDITOR,
       payload: null,
     })
-  }, [])
+  }, [dispatch])
 
   const exp_info = card.imageInfo.generator_reference.map((item, index) => {
     // console.log(item)
-    let [node_name, ...node_info] = item.split(":")
+    const [node_name, ...node_info] = item.split(":")
     return (
       <span key={index}>
         {node_name.trim()}{" "}

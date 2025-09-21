@@ -23,8 +23,8 @@ export const Drawer: FC<IDrawer> = ({ isOpen, setIsOpen }): ReactElement => {
         <div className='p-4 text-gray-700'>
           <p>
             This project is made for fun. promptAnnARTS is about arts and
-            nothing about nvidia's RTS. Of course you should have a RTS to run
-            stable diffusion, but that's not the point, the point is I'm
+            nothing about nvidia&apos;s RTS. Of course you should have a RTS to run
+            stable diffusion, but that&apos;s not the point, the point is I&apos;m
             learning react and typescript.
           </p>
           <p>

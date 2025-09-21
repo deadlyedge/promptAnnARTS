@@ -4,32 +4,35 @@ import { useAnnaState } from "../utils/annaContext"
 
 interface IPromptZone {
   card: TCard
-  zone: string
+  zone: 'prompts' | 'negatives'
 }
 
-interface IIndexable {
-  [key: string]: any
-}
 
 export const CardBody = ({ card, zone }: IPromptZone) => {
   const { dispatch } = useAnnaState()
 
-  const handleSingle = useCallback((id: string) => {
-    dispatch({
-      type: ACTION_TYPE.TOGGLE_TAGS,
-      payload: [card.id, id],
-    })
-    dispatch({
-      type: ACTION_TYPE.REFRESH_EDITOR,
-      payload: null,
-    })
-  }, [])
+  const handleSingle = useCallback(
+    (id: string) => {
+      dispatch({
+        type: ACTION_TYPE.TOGGLE_TAGS,
+        payload: [card.id, id],
+      })
+      dispatch({
+        type: ACTION_TYPE.REFRESH_EDITOR,
+        payload: null,
+      })
+    },
+    [dispatch, card.id]
+  )
 
-  const handleMulti = useCallback((zone: string) => {
-    ;(card.imageInfo as IIndexable)[zone].map((prompt: TPrompt) =>
-      handleSingle(prompt.id)
-    )
-  }, [])
+  const handleMulti = useCallback(
+    (zone: 'prompts' | 'negatives') => {
+      card.imageInfo[zone].forEach((prompt: TPrompt) =>
+        handleSingle(prompt.id)
+      )
+    },
+    [card.imageInfo, handleSingle]
+  )
 
   return (
     <div
@@ -38,7 +41,7 @@ export const CardBody = ({ card, zone }: IPromptZone) => {
           ? "group/item bg-green-400 bg-opacity-40 block"
           : "group/item bg-red-400 bg-opacity-40 block"
       }>
-      {(card.imageInfo as IIndexable)[zone].map((prompt: TPrompt) => (
+      {card.imageInfo[zone].map((prompt: TPrompt) => (
         <button key={prompt.id}>
           <input
             type='checkbox'
