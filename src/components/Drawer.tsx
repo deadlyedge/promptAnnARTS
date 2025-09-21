@@ -5,7 +5,7 @@ interface IDrawer {
   setIsOpen: (isOpen: boolean) => void
 }
 
-const Drawer: FC<IDrawer> = ({ isOpen, setIsOpen }): ReactElement => {
+export const Drawer: FC<IDrawer> = ({ isOpen, setIsOpen }): ReactElement => {
   console.log("Drawer")
   return (
     <main
@@ -53,5 +53,3 @@ const Drawer: FC<IDrawer> = ({ isOpen, setIsOpen }): ReactElement => {
     </main>
   )
 }
-
-export default Drawer

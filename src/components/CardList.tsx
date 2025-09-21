@@ -1,8 +1,8 @@
 import { TCard } from "../types"
 import { useAnnaState } from "../utils/annaContext"
-import CardItem from "./CardItem"
+import { CardItem } from "./CardItem"
 
-const CardList = () => {
+export const CardList = () => {
   const { state } = useAnnaState()
 
   return (
@@ -13,5 +13,3 @@ const CardList = () => {
     </div>
   )
 }
-
-export default CardList

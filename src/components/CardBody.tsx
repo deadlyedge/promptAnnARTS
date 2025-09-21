@@ -11,7 +11,7 @@ interface IIndexable {
   [key: string]: any
 }
 
-const CardBody = ({ card, zone }: IPromptZone) => {
+export const CardBody = ({ card, zone }: IPromptZone) => {
   const { dispatch } = useAnnaState()
 
   const handleSingle = useCallback((id: string) => {
@@ -68,5 +68,3 @@ const CardBody = ({ card, zone }: IPromptZone) => {
     </div>
   )
 }
-
-export default CardBody

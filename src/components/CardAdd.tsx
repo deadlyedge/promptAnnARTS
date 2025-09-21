@@ -1,3 +1,5 @@
+"use client"
+
 import { useCallback } from "react"
 import { FileDrop } from "react-file-drop"
 import exifr from "exifr"
@@ -6,7 +8,7 @@ import { v4 as uuid } from "uuid"
 import { formatBytes } from "../utils"
 import { useAnnaState } from "../utils/annaContext"
 
-const CardAdd = () => {
+export const CardAdd = () => {
   const { dispatch } = useAnnaState()
 
   const addNewCard = useCallback((card: TCard) => {
@@ -14,7 +16,7 @@ const CardAdd = () => {
       type: ACTION_TYPE.ADD_CARD,
       payload: card,
     })
-  }, [])
+  }, [dispatch])
 
   const handlePrompts = useCallback((prompts: string): TPrompt[] => {
     let result = prompts
@@ -87,5 +89,3 @@ const CardAdd = () => {
     </div>
   )
 }
-
-export default CardAdd

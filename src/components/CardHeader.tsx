@@ -6,7 +6,7 @@ interface ICardItem {
   card: TCard
 }
 
-const CardHeader = ({ card }: ICardItem) => {
+export const CardHeader = ({ card }: ICardItem) => {
   const { dispatch } = useAnnaState()
 
   const handleRemove = useCallback((id: string) => {
@@ -68,5 +68,3 @@ const CardHeader = ({ card }: ICardItem) => {
     </div>
   )
 }
-
-export default CardHeader

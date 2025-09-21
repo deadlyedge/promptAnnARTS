@@ -1,7 +1,7 @@
-import CardAdd from "./CardAdd"
-import Editor from "./Editor"
+import {CardAdd} from "./CardAdd"
+import {Editor} from "./Editor"
 
-const PageHeader = () => {
+export const PageHeader = () => {
   return (
     <div>
       <div className='fixed left-0 top-0 z-50 flex bg-gray-800 bg-opacity-70'>
@@ -25,5 +25,3 @@ const PageHeader = () => {
     </div>
   )
 }
-
-export default PageHeader

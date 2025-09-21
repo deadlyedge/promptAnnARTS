@@ -1,7 +1,9 @@
-import { useState } from "react"
-import Drawer from "./Drawer"
+"use client"
 
-const PageFooter = () => {
+import { useState } from "react"
+import { Drawer } from "./Drawer"
+
+export const PageFooter = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
@@ -18,5 +20,3 @@ const PageFooter = () => {
     </>
   )
 }
-
-export default PageFooter

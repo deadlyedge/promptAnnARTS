@@ -1,8 +1,8 @@
 import { TCard } from "../types"
-import CardBody from "./CardBody"
-import CardHeader from "./CardHeader"
+import { CardBody } from "./CardBody"
+import { CardHeader } from "./CardHeader"
 
-const CardItem = ({ card }: { card: TCard }) => {
+export const CardItem = ({ card }: { card: TCard }) => {
   const bodyZones = ["prompts", "negatives"]
 
   return (
@@ -13,7 +13,7 @@ const CardItem = ({ card }: { card: TCard }) => {
           <CardBody card={card} zone={zone} key={index} />
         ))}
       </div>
-      <div className="mb-1">
+      <div className='mb-1'>
         <label className='text-gray-400 text-xs ml-1 italic'>
           click{" "}
           <kbd className='rounded border border-gray-400 border-b-2 px-0.5'>
@@ -29,5 +29,3 @@ const CardItem = ({ card }: { card: TCard }) => {
     </div>
   )
 }
-
-export default CardItem
