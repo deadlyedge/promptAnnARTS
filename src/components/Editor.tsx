@@ -1,5 +1,5 @@
-import { TEditor } from "../types"
-import { useAnnaState } from "../utils/annaContext"
+import { TEditor } from "@/types"
+import { useAnnaState } from "@/utils/annaContext"
 
 export const Editor = () => {
   const { state } = useAnnaState()

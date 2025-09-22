@@ -1,0 +1,10 @@
+.next
+out
+build
+node_modules
+*.lock
+package-lock.json
+yarn.lock
+bun.lock
+public
+testData

@@ -1,19 +1,13 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  Dispatch,
-  ReactNode,
-} from "react"
-import { ACTION_TYPE, IAction, IState, TCard } from "../types"
+import { createContext, useContext, useReducer, Dispatch, ReactNode } from "react"
+import { ACTION_TYPE, TAction, TState, TCard } from "@/types"
 
-function initAnna(): IState {
+function initAnna(): TState {
   return { editor: { prompts: [], negatives: [] }, cardList: [] }
 }
 
 const AnnaContext = createContext<{
-  state: IState
-  dispatch: Dispatch<IAction>
+  state: TState
+  dispatch: Dispatch<TAction>
 }>({ state: initAnna(), dispatch: () => null })
 
 export function AnnaProvider({ children }: { children: ReactNode }) {
@@ -30,7 +24,7 @@ export function useAnnaState() {
   return useContext(AnnaContext)
 }
 
-function annaReducer(state: IState, action: IAction): IState {
+function annaReducer(state: TState, action: TAction): TState {
   const { type, payload } = action
 
   switch (type) {

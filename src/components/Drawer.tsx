@@ -6,7 +6,6 @@ interface IDrawer {
 }
 
 export const Drawer: FC<IDrawer> = ({ isOpen, setIsOpen }): ReactElement => {
-  console.log("Drawer")
   return (
     <main
       className={

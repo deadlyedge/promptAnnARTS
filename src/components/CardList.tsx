@@ -1,5 +1,5 @@
-import { TCard } from "../types"
-import { useAnnaState } from "../utils/annaContext"
+import { TCard } from "@/types"
+import { useAnnaState } from "@/utils/annaContext"
 import { CardItem } from "./CardItem"
 
 export const CardList = () => {
