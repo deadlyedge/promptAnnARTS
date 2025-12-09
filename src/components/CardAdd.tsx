@@ -70,7 +70,7 @@ export const CardAdd = () => {
       >
         <p className="text-center text-lg uppercase">Drop jpg/png here!</p>
         <svg
-          className="w-8 h-8 mx-auto  rotate-45 text-blue-500 group-hover:rotate-[135deg] group-hover:text-lime-500 duration-200"
+          className="w-8 h-8 mx-auto  rotate-45 text-blue-500 group-hover:rotate-135 group-hover:text-lime-500 duration-200"
           fill="currentColor"
           viewBox="7 2 10 20"
           xmlns="http://www.w3.org/2000/svg"

@@ -9,7 +9,7 @@ export const PageHeader = () => {
         <Editor />
       </div>
       <div>
-        <div className='w-52 h-40 right-0 top-0 fixed bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 background-animate'></div>
+        <div className='w-52 h-40 right-0 top-0 fixed bg-linear-to-r from-pink-500 via-red-500 to-yellow-500 background-animate'></div>
         <div className='w-80 h-20 right-0 top-0 fixed bg-gray-50/20'></div>
         <div className='w-40 h-80 right-0 top-0 fixed bg-gray-50/20'></div>
         <section className='logo fixed z-10 text-gray-200 h-40 w-48 top-0 right-0'>

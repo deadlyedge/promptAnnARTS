@@ -16,7 +16,7 @@ export const Editor = () => {
 
   return (
     <textarea
-      className='z-50 outline-none w-[40rem] h-40 m-1 text-sm text-gray-500 placeholder-gray-200 p-1 bg-opacity-20 border-2 rounded ring-offset-0 bg-gray-50 duration-200 hover:border-blue-500  hover:bg-opacity-70 hover:text-gray-900 focus:border-4 focus:bg-opacity-90 focus:text-gray-800  focus:border-orange-500'
+      className='z-50 outline-none w-160 h-40 m-1 text-sm text-gray-500 placeholder-gray-200 p-1 bg-opacity-20 border-2 rounded ring-offset-0 bg-gray-50 duration-200 hover:border-blue-500  hover:bg-opacity-70 hover:text-gray-900 focus:border-4 focus:bg-opacity-90 focus:text-gray-800  focus:border-orange-500'
       name='editor'
       id='editor'
       placeholder='your prompts here'

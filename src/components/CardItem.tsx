@@ -6,7 +6,7 @@ export const CardItem = ({ card }: { card: TCard }) => {
   const bodyZones: TZone[] = ['prompts', 'negatives']
 
   return (
-    <div className="z-30 bg-cover bg-center w-[35rem] m-1 bg-gray-900 rounded shadow static">
+    <div className="z-30 bg-cover bg-center w-140 m-1 bg-gray-900 rounded shadow static">
       <CardHeader card={card} />
       <div className="text-xs relative">
         {bodyZones.map((zone, index) => (
